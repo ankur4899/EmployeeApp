@@ -1,0 +1,41 @@
+ <div class="container">
+   
+ <form>
+  <div class="form-group">
+     <input type="text" class="form-control" ng-model="searchValue" placeholder="Search by Name or City">
+  </div>
+ </form>
+ <form>
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" ng-click="vm.addNewEmployee()">ADD NEW</button>
+  </div>
+ </form>
+
+ <table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>City</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>Postal Code</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="employee in vm.employeeList | searchFilter:searchValue">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.phone | NumberCheckFilter}}</td>
+      <td>{{employee.address.city}}</td>
+      <td>{{employee.address.address_line1}}</td>
+      <td>{{employee.address.address_line2}}</td>
+      <td>{{employee.address.postal_code}}</td>
+      <td><button type="button" class="btn btn-primary" ng-click="vm.gotoEditEmployee(employee)">Edit</button></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>

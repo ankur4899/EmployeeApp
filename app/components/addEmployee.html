@@ -1,0 +1,35 @@
+<form name="employeeForm" novalidate>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" name="empName" minlength="4" class="form-control" id="name" ng-model="vm.name" placeholder="Name" required>
+    <span ng-if="vm.submitted && !(employeeForm.empName.$valid)"> Please enter name of minimum 4 characters</span>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="number" name="phone_number" class="form-control" id="phone" ng-model="vm.phoneNumber" ng-pattern="/^\d+$/" placeholder="Phone" required>
+    <span ng-if="vm.submitted && !(employeeForm.phone_number.$valid)"> Please enter numeric digits</span>
+  </div>
+
+    <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" class="form-control" id="phone" ng-model="vm.city" placeholder="City">
+  </div>
+
+   <div class="form-group">
+    <label for="address1">Address 1</label>
+    <input type="text" class="form-control" id="phone" ng-model="vm.address1" placeholder="Address 1">
+  </div>
+
+   <div class="form-group">
+    <label for="address2">Address 2</label>
+    <input type="text" class="form-control" id="phone" ng-model="vm.address2" placeholder="Address 2">
+  </div>
+
+   <div class="form-group">
+    <label for="postalCode">Postal Code</label>
+    <input type="text" class="form-control" id="phone" ng-model="vm.postalCode" placeholder="Postal Code">
+  </div>
+
+  <button type="submit" class="btn btn-default" ng-click="vm.addEmployee(employeeForm)">Add Employee</button>
+</form>
